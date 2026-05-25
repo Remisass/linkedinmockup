@@ -1,0 +1,532 @@
+<!doctype html>
+<html lang="lt">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Nedas Piličiauskas | LinkedIn Mockup</title>
+  <style>
+    :root {
+      --linkedin: #0a66c2;
+      --ink: #14213d;
+      --muted: #5f6b7a;
+      --line: #d9e2ec;
+      --paper: #f3f2ef;
+      --card: #ffffff;
+      --accent: #00a36c;
+      --dark: #111827;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--dark);
+      background: var(--paper);
+    }
+
+    .topbar {
+      height: 58px;
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      padding: 0 42px;
+      background: #ffffff;
+      border-bottom: 1px solid var(--line);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    .logo {
+      width: 34px;
+      height: 34px;
+      border-radius: 5px;
+      background: var(--linkedin);
+      color: #ffffff;
+      font-weight: 800;
+      font-size: 22px;
+      display: grid;
+      place-items: center;
+    }
+
+    .search {
+      width: 340px;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      background: #eef3f8;
+      padding: 10px 12px;
+      color: #617080;
+    }
+
+    .nav {
+      margin-left: auto;
+      display: flex;
+      gap: 24px;
+      font-size: 13px;
+      color: #596575;
+    }
+
+    .wrap {
+      width: min(1120px, calc(100% - 32px));
+      margin: 24px auto 50px;
+      display: grid;
+      grid-template-columns: minmax(0, 760px) 320px;
+      gap: 22px;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      overflow: hidden;
+      margin-bottom: 18px;
+    }
+
+    .hero {
+      height: 205px;
+      background:
+        radial-gradient(circle at 84% 24%, rgba(0, 163, 108, .36), transparent 28%),
+        radial-gradient(circle at 18% 82%, rgba(255, 255, 255, .18), transparent 24%),
+        linear-gradient(135deg, rgba(10,102,194,.98), rgba(20,33,61,.97) 58%, rgba(17,24,39,.98)),
+        repeating-linear-gradient(90deg, transparent, transparent 38px, rgba(255,255,255,.10) 39px),
+        repeating-linear-gradient(0deg, transparent, transparent 38px, rgba(255,255,255,.08) 39px);
+      position: relative;
+    }
+
+    .hero::after {
+      content: "PYTHON  |  HELPDESK  |  IT SISTEMŲ MĄSTYMAS";
+      position: absolute;
+      right: 28px;
+      bottom: 24px;
+      color: rgba(255,255,255,.88);
+      font-weight: 700;
+      font-size: 16px;
+      letter-spacing: 0;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 26px 34px;
+      background:
+        linear-gradient(90deg, rgba(255,255,255,.0), rgba(255,255,255,.16), rgba(255,255,255,.0)),
+        repeating-linear-gradient(120deg, transparent, transparent 28px, rgba(255,255,255,.08) 29px);
+      border: 1px solid rgba(255,255,255,.16);
+      border-radius: 10px;
+    }
+
+    .profile-main {
+      padding: 0 28px 28px;
+      position: relative;
+    }
+
+    .avatar {
+      width: 148px;
+      height: 148px;
+      border-radius: 50%;
+      border: 5px solid #ffffff;
+      background: linear-gradient(145deg, #0a66c2, #00a36c);
+      color: #ffffff;
+      display: grid;
+      place-items: center;
+      font-size: 48px;
+      font-weight: 800;
+      margin-top: -78px;
+      box-shadow: 0 16px 30px rgba(15,23,42,.18);
+      overflow: hidden;
+      position: relative;
+    }
+
+    .avatar img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      position: absolute;
+      inset: 0;
+    }
+
+    h1 {
+      margin: 18px 0 5px;
+      font-size: 32px;
+      line-height: 1.15;
+      letter-spacing: 0;
+    }
+
+    .headline {
+      font-size: 18px;
+      line-height: 1.4;
+      max-width: 660px;
+      color: #243043;
+      font-weight: 600;
+    }
+
+    .meta {
+      margin-top: 10px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .actions {
+      display: flex;
+      gap: 10px;
+      margin-top: 18px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      border-radius: 999px;
+      padding: 9px 18px;
+      border: 1px solid var(--linkedin);
+      color: var(--linkedin);
+      background: #ffffff;
+      font-weight: 700;
+      font-size: 14px;
+    }
+
+    .btn.primary {
+      background: var(--linkedin);
+      color: #ffffff;
+    }
+
+    .section {
+      padding: 24px 28px;
+    }
+
+    .section h2 {
+      margin: 0 0 14px;
+      font-size: 22px;
+      letter-spacing: 0;
+    }
+
+    .section p {
+      line-height: 1.55;
+      margin: 0 0 12px;
+      color: #273244;
+    }
+
+    .chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 9px;
+    }
+
+    .chip {
+      border: 1px solid #b6d4f1;
+      background: #edf6ff;
+      color: #104f8c;
+      border-radius: 999px;
+      padding: 8px 12px;
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .post {
+      padding: 22px 24px;
+      border-top: 1px solid var(--line);
+    }
+
+    .post:first-of-type {
+      border-top: 0;
+    }
+
+    .post-head {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+      margin-bottom: 14px;
+    }
+
+    .mini-avatar {
+      width: 46px;
+      height: 46px;
+      border-radius: 50%;
+      background: linear-gradient(145deg, #0a66c2, #00a36c);
+      color: #ffffff;
+      display: grid;
+      place-items: center;
+      font-weight: 800;
+      overflow: hidden;
+      flex: 0 0 auto;
+    }
+
+    .mini-avatar img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .name {
+      font-weight: 800;
+    }
+
+    .role {
+      color: var(--muted);
+      font-size: 13px;
+      margin-top: 2px;
+    }
+
+    .post h3 {
+      margin: 0 0 8px;
+      font-size: 20px;
+      letter-spacing: 0;
+    }
+
+    .post p {
+      line-height: 1.55;
+      margin: 0 0 10px;
+      color: #253247;
+    }
+
+    .metrics {
+      border-top: 1px solid var(--line);
+      padding-top: 12px;
+      color: var(--muted);
+      font-size: 13px;
+      display: flex;
+      gap: 18px;
+    }
+
+    .side {
+      position: sticky;
+      top: 82px;
+      height: fit-content;
+    }
+
+    .side .section {
+      padding: 22px;
+    }
+
+    .mini-title {
+      text-transform: uppercase;
+      letter-spacing: 0;
+      font-size: 12px;
+      color: var(--muted);
+      font-weight: 800;
+      margin-bottom: 8px;
+    }
+
+    .side-list {
+      margin: 0;
+      padding-left: 18px;
+      color: #243043;
+      line-height: 1.55;
+    }
+
+    .quote {
+      border-left: 4px solid var(--accent);
+      padding-left: 12px;
+      font-weight: 700;
+      color: var(--ink);
+    }
+
+    @media (max-width: 900px) {
+      .wrap {
+        grid-template-columns: 1fr;
+      }
+
+      .side {
+        position: static;
+      }
+
+      .topbar {
+        padding: 0 18px;
+      }
+
+      .nav {
+        display: none;
+      }
+
+      .search {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="logo">in</div>
+    <div class="search">Paieška: IT sistemos, Python, helpdesk</div>
+    <nav class="nav">
+      <span>Pagrindinis</span>
+      <span>Tinklas</span>
+      <span>Darbas</span>
+      <span>Žinutės</span>
+      <span>Profilis</span>
+    </nav>
+  </header>
+
+  <main class="wrap">
+    <section>
+      <article class="card">
+        <div class="hero"></div>
+        <div class="profile-main">
+          <div class="avatar"><span>NP</span><img src="assets/profile_photo.jpg" alt="Nedas Piličiauskas" onerror="this.remove()"></div>
+          <h1>Nedas Piličiauskas</h1>
+          <div class="headline">Būsimas informatikos sistemų specialistas | Python 9/10, helpdesk 8–9/10 ir aiškus IT problemų sprendimas</div>
+          <div class="meta">Kaunas, Lietuva · Vytauto Didžiojo universitetas · Klientų aptarnavimas, Baltic Support Solutions · Atviras praktikai ir junior IT pozicijoms</div>
+          <div class="actions">
+            <a class="btn primary" href="https://www.linkedin.com/in/nedas-pili%C4%8Diauskas-52151b385/" target="_blank" rel="noopener">LinkedIn profilis</a>
+            <a class="btn" href="ataskaita.pdf" target="_blank" rel="noopener">Ataskaita PDF</a>
+            <button class="btn">Daugiau</button>
+          </div>
+        </div>
+      </article>
+
+      <article class="card section">
+        <h2>Apie</h2>
+        <p>Studijuoju informatikos sistemas Vytauto Didžiojo universitete, dirbu klientų aptarnavime įmonėje „Baltic Support Solutions“ ir savo kryptį sieju su praktišku IT problemų sprendimu: nuo vartotojo klausimo iki Python skripto, kuris sutaupo laiko.</p>
+        <p>Klientų aptarnavimas padeda geriau suprasti žmones: kaip kalbėti aiškiai, kaip nuraminti, kai situacija erzina, ir kaip problemą iš chaoso paversti konkrečiais veiksmais. Man svarbu, kad technologijos nebūtų tik teorija. Vertė atsiranda tada, kai sistema veikia aiškiau, žmogus supranta sprendimą, o pasikartojantis darbas tampa automatizuotas.</p>
+      </article>
+
+      <article class="card section">
+        <h2>Įgūdžiai</h2>
+        <div class="chips">
+          <span class="chip">Python 9/10</span>
+          <span class="chip">Helpdesk 8–9/10</span>
+          <span class="chip">Problemų diagnostika</span>
+          <span class="chip">IT sistemų analizė</span>
+          <span class="chip">Vartotojų konsultavimas</span>
+          <span class="chip">Klientų aptarnavimas</span>
+          <span class="chip">Dokumentavimas</span>
+          <span class="chip">Mokymasis per praktiką</span>
+        </div>
+      </article>
+
+      <article class="card section">
+        <h2>Patirtis</h2>
+        <p><strong>Klientų aptarnavimo specialistas · Baltic Support Solutions</strong></p>
+        <p>Kasdienis darbas su žmonėmis padeda lavinti aiškų bendravimą, kantrybę ir gebėjimą nuraminti klientą, kai problema atrodo neaiški arba kelia stresą. Šią patirtį sieju su helpdesk kryptimi, nes techninis sprendimas dažnai prasideda nuo gero pokalbio.</p>
+      </article>
+
+      <article class="card">
+        <div class="section">
+          <h2>Turinio pavyzdžiai</h2>
+        </div>
+        <div class="post">
+          <div class="post-head">
+            <div class="mini-avatar"><img src="assets/profile_photo.jpg" alt="Nedas Piličiauskas"></div>
+            <div>
+              <div class="name">Nedas Piličiauskas</div>
+              <div class="role">Informatikos sistemų studentas · Python + helpdesk</div>
+            </div>
+          </div>
+          <h3>Helpdesk nėra tik „pataisyk kompą“. Tai mokėjimas suprasti žmogų.</h3>
+          <p>Helpdesk vertinu rimtai: kai vartotojas sako „niekas neveikia“, pirmas darbas nėra spaudyti viską iš eilės. Pirmas darbas yra suprasti, kas pasikeitė, kada prasidėjo problema ir ką žmogus jau bandė.</p>
+          <p>Dirbdamas klientų aptarnavime matau, kad žmogui svarbu ne tik greitas atsakymas, bet ir ramus tonas. Kartais reikia pirmiausia nuraminti, tada paaiškinti, o tik tada spręsti techninę dalį.</p>
+          <p>Čia susitinka technologijos ir komunikacija. Geras IT žmogus ne tik randa klaidą, bet ir paaiškina sprendimą taip, kad kitą kartą vartotojui būtų ramiau.</p>
+          <p><strong>Mano principas:</strong> pirma suprasti situaciją, tada taisyti sistemą.</p>
+          <div class="metrics"><span>42 reakcijos</span><span>8 komentarai</span><span>5 persiuntimai</span></div>
+        </div>
+        <div class="post">
+          <div class="post-head">
+            <div class="mini-avatar"><img src="assets/profile_photo.jpg" alt="Nedas Piličiauskas"></div>
+            <div>
+              <div class="name">Nedas Piličiauskas</div>
+              <div class="role">Informatikos sistemų studentas</div>
+            </div>
+          </div>
+          <h3>Python man nėra tik kodas. Tai būdas tvarkyti rutiną.</h3>
+          <p>Daug mažų darbų kartojasi: failų pervadinimas, duomenų tikrinimas, rezultatų suvedimas. Python leidžia tokius darbus paversti taisykle, o ne rankiniu vargu.</p>
+          <p>Mano tikslas - kurti mažus, bet naudingus skriptus ir dokumentuoti juos taip, kad suprastų ne tik autorius, bet ir kitas žmogus.</p>
+          <div class="metrics"><span>31 reakcija</span><span>4 komentarai</span><span>3 persiuntimai</span></div>
+        </div>
+        <div class="post">
+          <div class="post-head">
+            <div class="mini-avatar"><img src="assets/profile_photo.jpg" alt="Nedas Piličiauskas"></div>
+            <div>
+              <div class="name">Nedas Piličiauskas</div>
+              <div class="role">IT sistemų kryptis</div>
+            </div>
+          </div>
+          <h3>3 klausimai, kuriuos užduodu prieš taisant IT problemą.</h3>
+          <p>1. Koks tikslus rezultatas turėjo įvykti? 2. Kas pasikeitė nuo tada, kai viskas veikė? 3. Ar problema kartojasi kitame įrenginyje, paskyroje ar tinkle?</p>
+          <p>Šie klausimai taupo laiką, nes padeda ne spėlioti, o siaurinti problemą. Tai paprasta, bet labai praktiška.</p>
+          <div class="metrics"><span>56 reakcijos</span><span>11 komentarai</span><span>9 persiuntimai</span></div>
+        </div>
+        <div class="post">
+          <div class="post-head">
+            <div class="mini-avatar"><img src="assets/profile_photo.jpg" alt="Nedas Piličiauskas"></div>
+            <div>
+              <div class="name">Nedas Piličiauskas</div>
+              <div class="role">Klientų aptarnavimas · IT kryptis</div>
+            </div>
+          </div>
+          <h3>Ko klientų aptarnavimas išmokė apie IT problemas?</h3>
+          <p>Dirbant su klientais greitai supranti vieną dalyką: žmogui dažnai reikia ne tik atsakymo, bet ir jausmo, kad situacija valdoma.</p>
+          <p>IT srityje tai labai svarbu. Jei žmogui neveikia sistema, jam nerūpi techniniai terminai. Jam rūpi, ar kažkas supranta problemą, paaiškina paprastai ir pasako, koks bus kitas žingsnis.</p>
+          <p>Dėl to helpdesk man atrodo ne tik techninis darbas. Tai ir komunikacija, kantrybė, atsakomybė.</p>
+          <div class="metrics"><span>44 reakcijos</span><span>7 komentarai</span><span>4 persiuntimai</span></div>
+        </div>
+        <div class="post">
+          <div class="post-head">
+            <div class="mini-avatar"><img src="assets/profile_photo.jpg" alt="Nedas Piličiauskas"></div>
+            <div>
+              <div class="name">Nedas Piličiauskas</div>
+              <div class="role">Python · automatizavimas</div>
+            </div>
+          </div>
+          <h3>Mažas Python skriptas gali sutaupyti daugiau laiko, nei atrodo.</h3>
+          <p>Kartais automatizavimas nebūna didelis projektas. Tai gali būti paprastas skriptas, kuris pervadina failus, patikrina duomenis arba suveda pasikartojančią informaciją.</p>
+          <p>Man patinka tokie sprendimai, nes jie parodo tikrą programavimo vertę: mažiau rankinio darbo, mažiau klaidų ir daugiau laiko svarbesniems dalykams.</p>
+          <p>Mano tikslas - kurti mažus sprendimus, kurie iš tikrųjų palengvina darbą.</p>
+          <div class="metrics"><span>39 reakcijos</span><span>6 komentarai</span><span>5 persiuntimai</span></div>
+        </div>
+        <div class="post">
+          <div class="post-head">
+            <div class="mini-avatar"><img src="assets/profile_photo.jpg" alt="Nedas Piličiauskas"></div>
+            <div>
+              <div class="name">Nedas Piličiauskas</div>
+              <div class="role">IT diagnostika</div>
+            </div>
+          </div>
+          <h3>Simptomas nėra tas pats, kas priežastis.</h3>
+          <p>Vartotojas dažnai mato tik simptomą: programa neatsidaro, internetas stringa, prisijungimas neveikia. Bet tikroji priežastis gali būti visai kitur.</p>
+          <p>Dėl to IT problemose svarbu neskubėti su išvada. Geriau užduoti kelis tikslius klausimus, patikrinti aplinkybes ir tik tada taisyti.</p>
+          <p>Šitas požiūris padeda dirbti ramiau ir profesionaliau.</p>
+          <div class="metrics"><span>51 reakcija</span><span>9 komentarai</span><span>6 persiuntimai</span></div>
+        </div>
+      </article>
+    </section>
+
+    <aside class="side">
+      <article class="card section">
+        <div class="mini-title">Brendo esmė</div>
+        <p class="quote">Technologines problemas paverčiu aiškiais, praktiškais sprendimais.</p>
+      </article>
+      <article class="card section">
+        <div class="mini-title">Auditorija</div>
+        <ul class="side-list">
+          <li>Pradedantys IT studentai</li>
+          <li>Žmonės, kuriems reikia paprasto IT paaiškinimo</li>
+          <li>Smulkios komandos, ieškančios praktiškų sprendimų</li>
+        </ul>
+      </article>
+      <article class="card section">
+        <div class="mini-title">Turinio kryptys</div>
+        <ul class="side-list">
+          <li>Python automatizavimas</li>
+          <li>Helpdesk ir diagnostika</li>
+          <li>IT sistemų mąstymas</li>
+          <li>Pradedančio specialisto kelias</li>
+        </ul>
+      </article>
+      <article class="card section">
+        <div class="mini-title">Pozicija</div>
+        <p>Rimtas, tiesus ir drąsus balsas: mažiau tuščių frazių, daugiau realių pavyzdžių.</p>
+      </article>
+      <article class="card section">
+        <div class="mini-title">Patirtis</div>
+        <p><strong>Baltic Support Solutions</strong><br>Klientų aptarnavimo specialistas</p>
+      </article>
+    </aside>
+  </main>
+</body>
+</html>
